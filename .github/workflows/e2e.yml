@@ -16,4 +16,9 @@ jobs:
       - run: npm install
       - run: npx playwright install
       - run: npm run test
-      
+      - uses: actions/upload-artifact@v3
+        if: always()
+        with:
+          name: playwright-report-e2e
+          path: playwright-report/
+          retention-days: 2
