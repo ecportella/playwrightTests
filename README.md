@@ -60,6 +60,10 @@ The Google Search test has been crafted with specific requirements:
   - MacOS: Uses the `Meta` key as the modifier.
   - Other OS: Uses the `Control` key as the modifier.
 
+## Continuous Integration (GitHub Actions)
+
+To maintain the quality and reliability of our tests, this project has been integrated with GitHub Actions. Every time a Pull Request (PR) is opened or merged with the main branch, the test suite runs to ensure integrity.
+
 ## Future Improvements
 
 The current solution for the Google Search test, though stable, isn't the most robust. Ideally, we'd want specific attributes or `data-testid` attached to the Google Results for more reliability. However, given that we don't have control over Google's markup, the current approach was deemed most stable.
