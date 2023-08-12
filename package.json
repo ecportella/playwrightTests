@@ -1,0 +1,23 @@
+{
+  "name": "playwrighttests",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx playwright test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ecportella/playwrightTests.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ecportella/playwrightTests/issues"
+  },
+  "homepage": "https://github.com/ecportella/playwrightTests#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.37.0"
+  }
+}
