@@ -1,69 +1,73 @@
-# End-to-End (e2e) Testing with Playwright
+# End-to-End Testing with Playwright
 
-This is a basic e2e testing project powered by JavaScript and Playwright. This documentation serves as a guide to help you understand the test structure, especially our specific Google Search test.
+Hello! This is our e2e testing project using JavaScript and Playwright. Here, you'll find all the info you need to get started, especially the specifics on our Google Search test.
 
 ## Table of Contents
 
 - [Prerequisites](#prerequisites)
-- [Setup & Installation](#setup--installation)
-- [Running Tests](#running-tests)
-- [Google Search Test Explanation](#google-search-test-explanation)
-- [Continuous Integration (GitHub Actions)](#continuous-integration-github-actions)
-- [Future Improvements](#future-improvements)
+- [Setting Things Up](#setup--installation)
+- [Run the Tests](#running-tests)
+- [About the Google Search Test](#google-search-test-explanation)
+- [CI with GitHub Actions](#continuous-integration-with-github-actions)
+- [Looking Ahead](#future-improvements)
 
 ## Prerequisites
 
-Before proceeding with the setup and test execution, ensure you have the following:
+First things first:
 
-- **npm**: This project requires npm to be installed locally. If you don't have it installed, you can [download and install npm from here](https://www.npmjs.com/get-npm).
+- **npm**: Make sure you've got npm installed on your machine. If you're not sure, or you need it, [here's where you can get it](https://www.npmjs.com/get-npm).
 
-## Setup & Installation
+## Setting Things Up
 
-Before you can run tests, ensure you've set up your environment correctly:
+Before running tests, let's get everything in order:
 
-### Installing Dependencies:
+1. Install the necessary dependencies:
 
-```
+```bash
 npm install
 ```
 
-### Installing Browsers for Playwright:
+2. Set up the browsers for Playwright:
 
-```
+```bash
 npx playwright install
 ```
 
-## Running Tests
+## Run the Tests
 
-After setting up your environment, you can run tests with the following command:
+All set? Great! Here's how to start:
 
-```
+```bash
 npm run test
 ```
 
-or
+Or you can also use:
 
-```
+```bash
 npx playwright test
 ```
 
-## Google Search Test Explanation
+## About the Google Search Test
 
-The Google Search test has been crafted with specific requirements:
+**Objective**: We're searching for "Selenium" on Google, aiming to open the second result in a new tab, and then checking out the page title.
 
-**Objective:** Google search for Selenium, open the second Google Result in a new tab and check the Page Title.
+Here's what you should know:
 
-**Details to Note:**
+- **Opening in a New Tab**: We want the second Google result to show up in a new tab. So, depending on your operating system:
 
-- **Selector Uniqueness**: The test uses `page.locator("h3").nth(5)` as the selector to open the second Google result. At first glance, this might seem counter-intuitive. However, upon close inspection, one realizes that the first four selectors correspond to the first Google result. This nuance is pivotal to ensuring our test behaves as expected.
-- **Opening Links in a New Tab**: The test requirement stipulates that the second Google Result should open in a new tab. To ensure this, we utilize a click modifier. Depending on the operating system:
-  - MacOS: Uses the `Meta` key as the modifier.
-  - Other OS: Uses the `Control` key as the modifier.
+  - MacOS: We press the `Meta` key before clicking.
+  - Other OS: We use the `Control` key.
 
-## Future Improvements
+  This ensures that the link opens in a new tab as desired.
 
-The current solution for the Google Search test, though stable, isn't the most robust. Ideally, we'd want specific attributes or `data-testid` attached to the Google Results for more reliability. However, given that we don't have control over Google's markup, the current approach was deemed most stable.
+## CI with GitHub Actions
+
+To keep everything on track, we've integrated with GitHub Actions. So, every time you either open or merge a PR with the main branch, the tests run to ensure everything's still working as expected.
+
+## Looking Ahead
+
+The current solution for the Google Search test, though stable, isn't the most robust. Ideally, we'd want specific attributes or data-testid attached to the Google Results for more reliability when it comes to clicking the second result. However, given that we don't have control over Google's markup, the current approach was deemed most stable.
 
 ---
 
-This project was developed by `ecportella`.
+If there are any questions, reach out. Cheers, `ecportella`.
