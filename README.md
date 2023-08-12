@@ -49,22 +49,16 @@ npx playwright test
 
 ## About the Google Search Test
 
-Let's talk about that Google Search test:
-
 **Objective**: We're searching for "Selenium" on Google, aiming to open the second result in a new tab, and then checking out the page title.
 
 Here's what you should know:
 
-- **Location Matters**: Google search results can differ based on where you are:
-
-  - On GitHub Actions, we use `page.locator("h3").nth(1)`.
-  - Running this locally from Brazil? Go for `page.locator("h3").nth(5)`, because the first four selectors relate to the initial result.
-
-  This highlights why having a consistent method (like a `data-testid` or unique attributes) would be great. For the sake of consistency on GitHub Actions, we're sticking with `page.locator("h3").nth(1)` for now.
-
 - **Opening in a New Tab**: We want the second Google result to show up in a new tab. So, depending on your operating system:
+
   - MacOS: We press the `Meta` key before clicking.
   - Other OS: We use the `Control` key.
+
+  This ensures that the link opens in a new tab as desired.
 
 ## CI with GitHub Actions
 
@@ -72,8 +66,8 @@ To keep everything on track, we've integrated with GitHub Actions. So, every tim
 
 ## Looking Ahead
 
-Our current method for the Google Search test is doing its job, but we're always thinking about making things even better. Ideally, we'd love to have unique attributes or `data-testid` for Google results. But since we can't control Google's setup, we're doing our best with what we have.
+The current solution for the Google Search test, though stable, isn't the most robust. Ideally, we'd want specific attributes or data-testid attached to the Google Results for more reliability when it comes to clicking the second result. However, given that we don't have control over Google's markup, the current approach was deemed most stable.
 
 ---
 
-Hope this helps! If there are any questions, reach out. Cheers, `ecportella`.
+If there are any questions, reach out. Cheers, `ecportella`.
