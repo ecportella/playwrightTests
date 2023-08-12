@@ -15,7 +15,7 @@ test.describe("Google Search", () => {
     await page.press('[name="q"]', "Enter");
     await page.waitForLoadState("domcontentloaded");
 
-    const link = page.locator("h3").nth(5);
+    const link = page.locator("h3").nth(1);
     const [newPage] = await Promise.all([
       page.context().waitForEvent("page"),
       link.click({ modifiers: [isMac ? "Meta" : "Control"] }),
