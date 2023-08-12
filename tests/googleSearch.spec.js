@@ -15,14 +15,14 @@ test.describe("Google Search", () => {
     await page.press('[name="q"]', "Enter");
     await page.waitForLoadState("domcontentloaded");
 
-    const link = page.locator("h3").nth(1);
+    const link = page.locator("#search a > h3").nth(1);
     const [newPage] = await Promise.all([
       page.context().waitForEvent("page"),
       link.click({ modifiers: [isMac ? "Meta" : "Control"] }),
     ]);
 
     await newPage.bringToFront();
-    await newPage.waitForLoadState("domcontentloaded");
+    await newPage.waitForEvent("load");
 
     const title = await newPage.title();
     expect(title).toContain("Selenium");
