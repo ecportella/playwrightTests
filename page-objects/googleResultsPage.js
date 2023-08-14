@@ -12,7 +12,7 @@ export const openResultByIndex = async (page, index) => {
   ]);
 
   await newPage.bringToFront();
-  await newPage.waitForEvent("load");
+  await newPage.waitForEvent("load", { timeout: 10000 });
 
   return newPage;
 };
