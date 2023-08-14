@@ -12,7 +12,8 @@ export const openResultByIndex = async (page, index) => {
   ]);
 
   await newPage.bringToFront();
-  await newPage.waitForEvent("load", { timeout: 10000 });
+  await newPage.waitForEvent("load", { timeout: 20000 });
+  await newPage.waitForLoadState("domcontentloaded");
 
   return newPage;
 };
