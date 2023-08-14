@@ -12,7 +12,7 @@ export const openResultByIndex = async (page, index) => {
   ]);
 
   await newPage.bringToFront();
-  await newPage.waitForLoadState("networkidle");
+  await newPage.waitForTimeout(3000);
 
   return newPage;
 };
